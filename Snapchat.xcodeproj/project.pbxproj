@@ -16,6 +16,8 @@
 		A73C16E622711CF400084539 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A73C16E522711CF400084539 /* GoogleService-Info.plist */; };
 		A73C16E822712B7200084539 /* SnapTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C16E722712B7200084539 /* SnapTableTableViewController.swift */; };
 		A73C16EA22712E1100084539 /* SelectPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C16E922712E1100084539 /* SelectPictureViewController.swift */; };
+		A73C16EC2272763F00084539 /* SelectRecipientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C16EB2272763F00084539 /* SelectRecipientTableViewController.swift */; };
+		A73C16EE2273EC5C00084539 /* ViewSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C16ED2273EC5C00084539 /* ViewSnapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		A73C16E522711CF400084539 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A73C16E722712B7200084539 /* SnapTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapTableTableViewController.swift; sourceTree = "<group>"; };
 		A73C16E922712E1100084539 /* SelectPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPictureViewController.swift; sourceTree = "<group>"; };
+		A73C16EB2272763F00084539 /* SelectRecipientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRecipientTableViewController.swift; sourceTree = "<group>"; };
+		A73C16ED2273EC5C00084539 /* ViewSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSnapViewController.swift; sourceTree = "<group>"; };
 		D066551EBC2E654AAFF54E27 /* Pods-Snapchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snapchat.debug.xcconfig"; path = "Target Support Files/Pods-Snapchat/Pods-Snapchat.debug.xcconfig"; sourceTree = "<group>"; };
 		EC27D342DE7A264AA35D4842 /* Pods-Snapchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snapchat.release.xcconfig"; path = "Target Support Files/Pods-Snapchat/Pods-Snapchat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +84,8 @@
 				A73C16D522711CA000084539 /* LoginViewController.swift */,
 				A73C16D722711CA000084539 /* Main.storyboard */,
 				A73C16E922712E1100084539 /* SelectPictureViewController.swift */,
+				A73C16ED2273EC5C00084539 /* ViewSnapViewController.swift */,
+				A73C16EB2272763F00084539 /* SelectRecipientTableViewController.swift */,
 				A73C16E722712B7200084539 /* SnapTableTableViewController.swift */,
 				A73C16DA22711CAA00084539 /* Assets.xcassets */,
 				A73C16DC22711CAA00084539 /* LaunchScreen.storyboard */,
@@ -178,6 +184,8 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Snapchat/Pods-Snapchat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -186,6 +194,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,7 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A73C16E822712B7200084539 /* SnapTableTableViewController.swift in Sources */,
+				A73C16EE2273EC5C00084539 /* ViewSnapViewController.swift in Sources */,
 				A73C16EA22712E1100084539 /* SelectPictureViewController.swift in Sources */,
+				A73C16EC2272763F00084539 /* SelectRecipientTableViewController.swift in Sources */,
 				A73C16D622711CA000084539 /* LoginViewController.swift in Sources */,
 				A73C16D422711CA000084539 /* AppDelegate.swift in Sources */,
 			);

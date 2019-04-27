@@ -7,12 +7,13 @@
 //
 
 import UIKit
-
+import FirebaseStorage
 class SelectPictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
     var imagePicker : UIImagePickerController?
     var imageAdded : Bool = false
+    let fileName = "\(NSUUID().uuidString).jpg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,10 +60,36 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func nextTapped(_ sender: Any) {
+      
+        
+        
         if let message  = messageTextField.text{
             if imageAdded && message != ""{
                 // Segue to next view controller
-                
+                let imageFolder = Storage.storage().reference().child("images")
+          
+                if let image = imageView.image{
+                    if let imageData = image.jpegData(compressionQuality: 0.1){
+                        imageFolder.child(fileName).putData(imageData, metadata: nil) { (metadata, error) in
+                            if let error = error {
+                                self.presentAlert(message: error.localizedDescription)
+                            }else{
+                                //segue to the next view controller
+                                let ref = Storage.storage().reference().child("images/\(self.fileName)")
+                                ref.downloadURL(completion: { (url, error) in
+                                    
+                                    if let url = url{
+                                       print("URL")
+                                        print(url)
+                                            self.performSegue(withIdentifier: "selectReceiverSegue", sender: url)
+                                    }
+                                    
+                                })
+                                
+                            }
+                        }
+                    }
+                }
                 
             }else{
                 // We are missing something
@@ -79,6 +106,32 @@ class SelectPictureViewController: UIViewController, UIImagePickerControllerDele
         
         
     }
+    
+    
+    func presentAlert(message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let downloadURL = sender as? NSURL{
+            if let urlString = downloadURL.absoluteString{
+                print(downloadURL)
+                if let selectVC = segue.destination as? SelectRecipientTableViewController{
+                    selectVC.downloadURL = urlString
+                    selectVC.snapDescription = messageTextField.text!
+                    selectVC.imageName = self.fileName
+                }
+            }
+            
+        }else{
+            print("it is not a string")
+        }
+    }
+    
     @IBAction func cameraTapped(_ sender: Any) {
         
         if imagePicker != nil{

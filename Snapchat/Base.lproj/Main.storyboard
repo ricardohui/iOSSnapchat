@@ -126,6 +126,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="qbT-Az-fEf" kind="show" identifier="viewSnapSegue" id="0Ds-JN-OCq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xAW-zE-qXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -194,11 +197,83 @@
                     <connections>
                         <outlet property="imageView" destination="DqW-pP-dhM" id="cso-ks-yV2"/>
                         <outlet property="messageTextField" destination="FOO-ie-10d" id="YNZ-Fd-Lz7"/>
+                        <segue destination="yJV-9K-4cP" kind="show" identifier="selectReceiverSegue" id="1UQ-FD-eRX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPe-TJ-101" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3493.5999999999999" y="47.226386806596707"/>
+        </scene>
+        <!--Select Recipient Table View Controller-->
+        <scene sceneID="hiX-X1-hHR">
+            <objects>
+                <tableViewController id="yJV-9K-4cP" customClass="SelectRecipientTableViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tyx-v6-J5h">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pnM-m4-DKq">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pnM-m4-DKq" id="fnY-gJ-ckw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yJV-9K-4cP" id="jiF-kg-fZy"/>
+                            <outlet property="delegate" destination="yJV-9K-4cP" id="okj-7V-fsK"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="afT-Es-cHp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4524" y="47"/>
+        </scene>
+        <!--View Snap View Controller-->
+        <scene sceneID="xiW-Z1-Edf">
+            <objects>
+                <viewController id="qbT-Az-fEf" customClass="ViewSnapViewController" customModule="Snapchat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8YM-q0-BxQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="loremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremloremlorem" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0N-DQ-T8t">
+                                <rect key="frame" x="20" y="418" width="339" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="d8t-K5-e6v">
+                                <rect key="frame" x="20" y="20" width="335" height="335"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="335" id="bap-4V-beP"/>
+                                    <constraint firstAttribute="width" constant="335" id="smr-0q-4Ye"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jIf-S2-qxx" firstAttribute="bottom" secondItem="A0N-DQ-T8t" secondAttribute="bottom" constant="181" id="9oy-5J-mFb"/>
+                            <constraint firstItem="jIf-S2-qxx" firstAttribute="trailing" secondItem="A0N-DQ-T8t" secondAttribute="trailing" constant="16" id="QyJ-uy-vfe"/>
+                            <constraint firstItem="d8t-K5-e6v" firstAttribute="top" secondItem="8YM-q0-BxQ" secondAttribute="top" constant="20" id="WQ9-Af-Y46"/>
+                            <constraint firstItem="A0N-DQ-T8t" firstAttribute="leading" secondItem="jIf-S2-qxx" secondAttribute="leading" constant="20" id="ZaI-9S-0KI"/>
+                            <constraint firstItem="A0N-DQ-T8t" firstAttribute="leading" secondItem="d8t-K5-e6v" secondAttribute="trailing" constant="-335" id="d4Z-Vq-2Ci"/>
+                            <constraint firstItem="d8t-K5-e6v" firstAttribute="leading" secondItem="jIf-S2-qxx" secondAttribute="leading" constant="20" id="pcV-ZY-IUi"/>
+                            <constraint firstItem="jIf-S2-qxx" firstAttribute="trailing" secondItem="d8t-K5-e6v" secondAttribute="trailing" constant="20" id="rMY-P7-HSe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jIf-S2-qxx"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="d8t-K5-e6v" id="a85-iq-6Li"/>
+                        <outlet property="messageLabel" destination="A0N-DQ-T8t" id="Iuu-Aa-azs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZCy-8u-bNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2553" y="967"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="P3D-Cj-klE">
@@ -221,5 +296,6 @@
     </scenes>
     <resources>
         <image name="camera" width="512" height="512"/>
+        <image name="placeholder" width="960" height="796"/>
     </resources>
 </document>
